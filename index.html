@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TimePass 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #ffe6f0;
+    }
+
+    .question {
+      display: none;
+      margin-top: 50px;
+    }
+
+    .question.active {
+      display: block;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #ff4da6;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e60073;
+    }
+
+    #noBtn {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hey Cutie, answer these 🥺👉👈</h1>
+
+  <!-- Question 1 -->
+  <div class="question active" id="q1">
+    <h2>1. What's your name? 💬</h2>
+    <input type="text" id="nameInput" placeholder="Type here..." />
+    <br><br>
+    <button class="btn" onclick="nextQuestion(1)">Next ➡️</button>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question" id="q2">
+    <h2>2. Do you like surprises? 🎁</h2>
+    <button class="btn" onclick="nextQuestion(2)">Yes</button>
+    <button class="btn" onclick="nextQuestion(2)">Absolutely 😍</button>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question" id="q3">
+    <h2>3. Am I your favorite person? 🥰</h2>
+    <button class="btn" onclick="nextQuestion(3)">Yes</button>
+    <button class="btn" onclick="nextQuestion(3)">Of course!</button>
+  </div>
+
+  <!-- Question 4 (funny one) -->
+  <div class="question" id="q4">
+    <h2>4. Do you love me? 😘</h2>
+    <button class="btn" onclick="showLove()">Yes 💖</button>
+    <button class="btn" id="noBtn">No 🙈</button>
+  </div>
+
+  <script>
+    function nextQuestion(current) {
+      document.getElementById('q' + current).classList.remove('active');
+      document.getElementById('q' + (current + 1)).classList.add('active');
+    }
+
+    function showLove() {
+      alert("Awww I love you too! 😍💘");
+    }
+
+    // Move "No" button randomly
+    const noBtn = document.getElementById('noBtn');
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.floor(Math.random() * (window.innerWidth - 100));
+      const y = Math.floor(Math.random() * (window.innerHeight - 100));
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+  </script>
+
+</body>
+</html>
